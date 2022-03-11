@@ -1,0 +1,52 @@
+---
+title: "Practica4"
+output: html_document
+date: '2022-03-10'
+toc: true
+
+---
+
+# Resumen de la base de datos 
+
+```{r}
+data("cars")
+summary(cars)
+
+```
+
+## Tamaño de la base de datos
+```{r}
+object.size(cars)
+```
+## Nombre de las columnas
+```{r}
+names(cars)
+```
+## ultimos 10 registros
+```{r}
+tail(cars,10)
+```
+## Numero de Columnas de la base 
+```{r}
+nrow(cars)
+```
+## Todos los registros de la columna speed
+```{r}
+cars$speed
+```
+## Muestra un subconjunto con los registros 2 y 20
+```{r}
+cars[c(2,20),]
+```
+## muestra los registros que superan la velocidad de 20 
+```{r}
+newdata<-subset(cars,speed>20,"speed") 
+newdata
+```
+
+## Muestra los registros con velocidad = 20 en la columna dist
+```{r}
+newdata1<-subset(cars,speed==20,"dist") 
+newdata1
+```
+
