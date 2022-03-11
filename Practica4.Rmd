@@ -14,7 +14,7 @@ summary(cars)
 
 ```
 
-## Tamaño de la base de datos
+# Tamaño de la base de datos
 ```{r}
 object.size(cars)
 ```
