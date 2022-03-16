@@ -1,0 +1,40 @@
+---
+title: "Practica5"
+author: "jerc"
+date: '2022-03-15'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Cargamos la base
+```{r}
+data("airquality")
+library(dplyr)
+summary(airquality)
+```
+## Clase de Estrucura de la base
+```{r}
+class(airquality)
+```
+## Tamaño del archivo de la base
+```{r}
+object.size(airquality)
+```
+## Los primeros 6 registros de la base de datos
+```{r}
+head(airquality,6)
+```
+#Conjunto de datos con solo las variables Ozon, Wind y Temp
+```{r}
+ newdata<-select(airquality, Ozone , Wind , Temp)
+head(newdata,6)
+```
+# COnjunto con todas las varibales excepto wind y day 
+```{r}
+newdata1 <- select(airquality,-Wind,-Day)
+newdata1
+```
+
+
