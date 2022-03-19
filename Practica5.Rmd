@@ -35,6 +35,9 @@ head(newdata,6)
 ```{r}
 newdata1 <- select(airquality,-Wind,-Day)
 newdata1
+newdata4 <-filter(airquality, Month=="8" & Solar.R >=200)
+newdata4
 ```
+
 
 

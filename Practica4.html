@@ -407,6 +407,17 @@ summary(cars)</code></pre>
 ## 49    24  120
 ## 50    25   85</code></pre>
 </div>
+</div>
+<div id="primeros-6-regsitros" class="section level1">
+<h1>Primeros 6 regsitros</h1>
+<pre class="r"><code>head(cars,6)</code></pre>
+<pre><code>##   speed dist
+## 1     4    2
+## 2     4   10
+## 3     7    4
+## 4     7   22
+## 5     8   16
+## 6     9   10</code></pre>
 <div id="numero-de-columnas-de-la-base" class="section level2">
 <h2>Numero de Columnas de la base</h2>
 <pre class="r"><code>nrow(cars)</code></pre>
@@ -449,6 +460,24 @@ newdata1</code></pre>
 ## 42   56
 ## 43   64</code></pre>
 </div>
+</div>
+<div id="conjunto-con-los-registros-con-velocidad-20" class="section level1">
+<h1>conjunto con los registros con velocidad &gt;=20</h1>
+<pre class="r"><code>sub1 &lt;- subset(cars,speed&gt;=20,&quot;speed&quot;) 
+sub1</code></pre>
+<pre><code>##    speed
+## 39    20
+## 40    20
+## 41    20
+## 42    20
+## 43    20
+## 44    22
+## 45    23
+## 46    24
+## 47    24
+## 48    24
+## 49    24
+## 50    25</code></pre>
 </div>
 
 

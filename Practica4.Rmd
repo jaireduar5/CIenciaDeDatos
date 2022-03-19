@@ -6,7 +6,7 @@ toc: true
 
 ---
 
-# Resumen de la base de datos 
+#  Resumen de la base de datos 
 
 ```{r}
 data("cars")
@@ -26,7 +26,11 @@ names(cars)
 ```{r}
 tail(cars,10)
 ```
-## Numero de Columnas de la base 
+# Primeros 6 regsitros 
+```{r}
+head(cars,6)
+```
+## Numero de Columnas de la base
 ```{r}
 nrow(cars)
 ```
@@ -49,4 +53,10 @@ newdata
 newdata1<-subset(cars,speed==20,"dist") 
 newdata1
 ```
+# conjunto con los registros con velocidad >=20
+```{r}
+sub1 <- subset(cars,speed>=20,"speed") 
+sub1
+```
+
 
