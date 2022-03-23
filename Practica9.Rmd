@@ -1,0 +1,60 @@
+---
+title: "Practica9"
+author: "jerc"
+date: '2022-03-23'
+output: 
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      smooth_scrool: no
+    number_sections: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r}
+library(ggplot2)
+eco<-read.csv("EconomistData.csv")
+
+```
+# Grafica de dispersion
+
+```{r}
+ggplot(data = eco)+geom_point(mapping = aes(x= CPI, y=HDI))
+```
+
+
+## Grafica con el cambio de color
+```{r}
+ggplot(data = eco)+geom_point(mapping = aes(x= CPI, y=HDI),color="blue")
+
+```
+
+# Asignacion de color a la variable region 
+```{r}
+ggplot(data = eco)+geom_point(mapping = aes(x= CPI, y=HDI,color= Region))
+```
+
+## Con size 2
+
+```{r}
+ggplot(data = eco)+geom_point(mapping = aes(x= CPI, y=HDI,color= Region,size=2))
+```
+
+### Asignando a la variable HDI.Rank el tamaño de los puntos
+```{r}
+ggplot(data = eco)+geom_point(mapping = aes(x= CPI, y=HDI,color= Region,size=HDI.Rank))
+```
+
+# Cambiando las formas de los puntos
+
+```{r}
+ggplot(data = eco)+geom_point(mapping = aes(x= CPI, y=HDI,color= Region,shape=Region))
+
+```
+
