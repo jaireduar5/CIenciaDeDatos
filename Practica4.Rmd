@@ -1,9 +1,15 @@
 ---
-title: "Practica4"
-output: html_document
+title: "Practica 4"
 date: '2022-03-10'
-toc: true
-
+output: 
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      smooth_scrool: no
+    number_sections: yes
+   
+    theme: spacelab
 ---
 
 #  Resumen de la base de datos 

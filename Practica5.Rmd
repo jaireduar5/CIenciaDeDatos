@@ -2,13 +2,21 @@
 title: "Practica5"
 author: "jerc"
 date: '2022-03-15'
-output: html_document
+output: 
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      smooth_scrool: no
+    number_sections: yes
+   
+    theme: spacelab
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-## Cargamos la base
+# Cargamos la base
 ```{r}
 data("airquality")
 library(dplyr)
@@ -18,26 +26,32 @@ summary(airquality)
 ```{r}
 class(airquality)
 ```
-## Tamaño del archivo de la base
+### Tamaño del archivo de la base
 ```{r}
 object.size(airquality)
 ```
-## Los primeros 6 registros de la base de datos
+#### Los primeros 6 registros de la base de datos
 ```{r}
 head(airquality,6)
 ```
-#Conjunto de datos con solo las variables Ozon, Wind y Temp
+# Conjunto de datos con solo las variables Ozon, Wind y Temp
 ```{r}
  newdata<-select(airquality, Ozone , Wind , Temp)
 head(newdata,6)
 ```
-# COnjunto con todas las varibales excepto wind y day 
+
+# Conjunto con todas las varibales excepto wind y day y filtrado de Solar.R mayor a 200 en el mes 8
+
 ```{r}
 newdata1 <- select(airquality,-Wind,-Day)
 newdata1
 newdata4 <-filter(airquality, Month=="8" & Solar.R >=200)
 newdata4
+
 ```
-
-
+# Modificacion de °C a °F
+```{r}
+newdata8<-mutate(airquality,Temp= (Temp * 1.8)+32 )
+newdata8
+```
 

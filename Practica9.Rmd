@@ -57,4 +57,4 @@ ggplot(data = eco)+geom_point(mapping = aes(x= CPI, y=HDI,color= Region,size=HDI
 ggplot(data = eco)+geom_point(mapping = aes(x= CPI, y=HDI,color= Region,shape=Region))
 
 ```
-
+#hola
