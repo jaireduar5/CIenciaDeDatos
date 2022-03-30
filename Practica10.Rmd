@@ -1,0 +1,106 @@
+---
+title: "Practica10"
+author: "jerc"
+date: '2022-03-24'
+output: 
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      smooth_scrool: no
+    number_sections: yes
+   
+    theme: spacelab
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+library(ggplot2)
+library(dplyr)
+```
+
+
+# DEl inciso A) al C)
+```{r}
+base<- read.csv("mexico_covid19.csv")
+head(base,6)
+dim(base)
+object.size(base)
+base$SEXO<-as.character(datos$SEXO)
+str(base)
+# Reemplazar valores categoricos
+data2<-mutate(base,SEXO = ifelse(SEXO == "1", "MUJER",
+                        ifelse(SEXO == "2", "HOMBRE", "NO_ESPECIFICADO")))
+
+
+```
+# Inciso D
+```{r}
+fe<-select(data2,ENTIDAD,RESULTADO,SEXO)
+fe$ENTIDAD<-as.character(fe$ENTIDAD)
+fe<-group_by(fe,SEXO)
+
+res<-table(fe$ENTIDAD,fe$RESULTADO,fe$SEXO)                   
+res
+```
+
+# Inciso E
+
+```{r}
+barplot(margin.table(res,1),
+        main = "Casos por entidad",
+        xlab = "Entidades", ylab = "Número de caso", horiz = FALSE,
+        col = "blue")
+```
+
+
+
+# Inciso F
+```{r}
+base$SECTOR<-as.character(base$SECTOR)
+
+ 
+data2<-mutate(base,SECTOR = ifelse(SECTOR == "1", "CRUZ_ROJA",
+                             ifelse(SECTOR == "2", "DIF", 
+                                    ifelse(SECTOR == "2", "DIF", 
+                                           ifelse(SECTOR == "2", "DIF", 
+                                                  ifelse(SECTOR == "3", "ESTATAL", 
+                                                         ifelse(SECTOR == "4", "ESTATAL", 
+                                                                ifelse(SECTOR == "5", "IMSS_BIENESTAR",  
+                                                                       ifelse(SECTOR == "6", "ISSSTE", 
+                                                                              ifelse(SECTOR == "7", "MUNICIPAL", 
+                                                                                     ifelse(SECTOR == "8", "PEMEX", 
+                                                                                            ifelse(SECTOR == "9", "PRIVADA", 
+                                                                                                   ifelse(SECTOR == "10", "SEDENA", 
+                                                                                                          ifelse(SECTOR == "11", "SEMAR", 
+                                                                                                                 ifelse(SECTOR == "12", "SSA", 
+                                                                                                                        ifelse(SECTOR == "13", "UNIVERSITARIO", "NO_ESPECIFICADO"))))))))))))))))
+```
+# Inciso G
+```{r}
+
+
+oax <- select(data2, SECTOR,RESULTADO)
+
+oax<-as.data.frame(table(oax$SECTOR,oax$RESULTADO))
+
+
+oax
+ggplot(data = oax)+
+  aes(x=Var1, y = Freq) + 
+  geom_bar(stat="identity")
+```
+
+# Inciso I 
+```{r}
+oax<-select(base,ENTIDAD,RESULTADO,EDAD)
+oax$ENTIDAD<-as.character(oax$ENTIDAD)
+oax_pos<-filter(oax,
+                ENTIDAD =="Oaxaca"&
+                  RESULTADO == 1)
+oax_pos
+boxplot(oax_pos$EDAD)
+```
+
