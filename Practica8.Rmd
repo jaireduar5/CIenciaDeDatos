@@ -1,0 +1,33 @@
+---
+title: "Practica 8"
+author: "Jair Corral"
+date: '2022-03-29'
+output: 
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      smooth_scrool: no
+    number_sections: yes
+   
+    theme: spacelab
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Grafica con geom_line de las temperaturas en la base Airquality
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+library(ggplot2)
+data("airquality")
+ggplot(data = airquality)+geom_line(mapping = aes(x= Day, y=Temp), color="blue")
+
+
+```
+
