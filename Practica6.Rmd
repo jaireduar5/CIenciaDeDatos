@@ -1,0 +1,72 @@
+---
+title: "Practica6"
+author: "jair Corral"
+date: '2022-03-16'
+output: 
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      smooth_scrool: no
+    number_sections: yes
+   
+    theme: spacelab
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(dplyr)
+```
+
+# Carga y muestra de la base de datos "airquality".
+```{r}
+    data(airquality)
+    airquality
+```
+
+## Calculo de  la media mesual de temperaturas. Es posible considerar un grupo por mes
+    Titulo: "Media mensual de temperaturas"
+    X: "Mes"
+    Y: "Media mensual"
+```{r}
+    data<- summarize(group_by (airquality, Month), media_mesual = mean(Temp, na.rm = TRUE))
+data 
+```
+### se muestra una grafica de barras:
+
+```{r}
+
+    barplot(height = data$media_mesual,
+    names.arg = data$Month,
+    main = "Media mensual de temperaturas", 
+    xlab = "Mes", horiz = TRUE, 
+    ylab = "Media mensual",
+    col = "yellow")
+
+    barplot(height = data$media_mesual,
+    names.arg = data$Month,
+    main = "Media mensual de temperaturas",
+    xlab = "Mes", horiz = FALSE,
+    ylab = "Media mensual",
+    col = "green")
+```
+
+
+
+# Grafica de dispersion Ozone vs Solar.R, con el siguiente formato:
+    Titulo: Ozono vs Radiacion Solar
+    xlab = Ozono
+    ylab = Radiacion Solar
+    color = azul
+```{r}
+    plot(x = airquality$Ozone, y = airquality$Solar.R,
+    type = "o",
+    main = "Ozono vs Radiacion Solar",
+    xlab = "Radiacion Solar",
+    ylab = "Ozono",
+    col = "blue")
+```
