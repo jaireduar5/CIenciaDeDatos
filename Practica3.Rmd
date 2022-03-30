@@ -1,0 +1,33 @@
+---
+title: "Practica3"
+author: "Jair Corral"
+date: '2022-03-30'
+output: 
+  html_document:
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      smooth_scrool: no
+    number_sections: yes
+   
+    theme: spacelab
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Leer tabla con read.table
+
+``` {r}
+    library(readxl)
+    data <- read.table(file = "datos.data", header = TRUE)
+    data
+```
+
+## Leer datos desde Excel con readxl
+``` {r}
+    dataex <- read_excel(file.choose(), sheet = "Hoja1")
+    dataex <- read_excel(path = "data.xls", sheet = "Hoja1")
+    as.data.frame(dataex)
+```
