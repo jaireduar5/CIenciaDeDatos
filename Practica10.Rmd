@@ -28,13 +28,12 @@ base<- read.csv("mexico_covid19.csv")
 head(base,6)
 dim(base)
 object.size(base)
-base$SEXO<-as.character(datos$SEXO)
+base$SEXO<-as.character(base$SEXO)
 str(base)
 # Reemplazar valores categoricos
 data2<-mutate(base,SEXO = ifelse(SEXO == "1", "MUJER",
                         ifelse(SEXO == "2", "HOMBRE", "NO_ESPECIFICADO")))
-
-
+data2
 ```
 # Inciso D
 ```{r}
